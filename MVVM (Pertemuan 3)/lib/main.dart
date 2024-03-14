@@ -6,7 +6,7 @@ import 'bloc/contact_cubit.dart';
 void main() {
   runApp(const MyApp());
 }
-
+//firki
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
