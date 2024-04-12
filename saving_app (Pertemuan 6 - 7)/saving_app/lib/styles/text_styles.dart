@@ -31,6 +31,12 @@ TextStyle kBody1 = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
 );
 
+TextStyle kBody2 = GoogleFonts.poppins(
+  fontSize: 11,
+  fontWeight: FontWeight.w500,
+);
+
+
 TextStyle kCaption = GoogleFonts.poppins(
   fontSize: 10,
   fontWeight: FontWeight.w500,
