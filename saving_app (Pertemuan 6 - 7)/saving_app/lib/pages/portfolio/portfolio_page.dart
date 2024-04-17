@@ -100,19 +100,19 @@ class PortfolioPage extends StatelessWidget {
                   Icon(
                     Icons.add,
                     size: 13,
-                    color: kLuckyBlue,
+                    color: kWhite,
                   ),
                   Text(
                     'add portfolio',
                     style: kButton2.copyWith(
-                      color: kLuckyBlue,
+                      color: kWhite,
                       fontWeight: FontWeight.w600,
                     ),
                   )
                 ],
               ),
               style: TextButton.styleFrom(
-                backgroundColor: kWhite,
+                backgroundColor: kOrange,
                 padding: EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
