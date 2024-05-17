@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_pertemuan8/bloc/login/login_cubit.dart';
 import 'package:firebase_auth_pertemuan8/bloc/register/register_cubit.dart';
+import 'package:firebase_auth_pertemuan8/ui/home_screen.dart';
+import 'package:firebase_auth_pertemuan8/ui/login.dart';
 import 'package:firebase_auth_pertemuan8/ui/splash.dart';
 import 'package:firebase_auth_pertemuan8/utils/routers.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,7 +36,22 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         navigatorKey: NAV_KEY,
         onGenerateRoute: generateRoute,
-        home: SplashScreen(),
+        home: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+               return const CircularProgressIndicator();
+            } else if (snapshot.hasData) {
+               return HomeScreen();
+            } else if (snapshot.hasError) {
+               return const Center(
+                  child: Text('Something went wrong'),
+               );
+            } else {
+              return const LoginScreen();
+            }
+          },
+        ),
       ),
     );
   }
